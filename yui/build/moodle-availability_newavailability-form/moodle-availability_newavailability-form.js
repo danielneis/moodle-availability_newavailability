@@ -1,3 +1,5 @@
+YUI.add('moodle-availability_newavailability-form', function (Y, NAME) {
+
 /**
  * JavaScript for form editing date conditions.
  *
@@ -21,14 +23,13 @@ M.availability_newavailability.form = Y.Object(M.core_availability.plugin);
  * @param {String} html HTML to use for date fields
  * @param {Number} defaultTime Time value that corresponds to initial fields
  */
-M.availability_newavailability.form.initInner = function(name) {
-    this.name = name;
+M.availability_newavailability.form.initInner = function() {
 };
 
 M.availability_newavailability.form.getNode = function(json) {
 
     // Example controls contain only one tickbox.
-    var html = '<label>' + name + ' <input type="checkbox"/></label>';
+    var html = '<label>' + M.util.get_string('title', 'availability_newavailability') + ' <input type="checkbox"/></label>';
     var node = Y.Node.create('<span>' + html + '</span>');
 
     // Set initial values based on the value from the JSON data in Moodle
@@ -80,3 +81,6 @@ M.availability_completion.form.fillErrors = function(errors, node) {
         errors.push('availability_newavailability:error_message');
     }
 };
+
+
+}, '@VERSION@', {"requires": ["base", "node", "event", "moodle-core_availability-form"]});

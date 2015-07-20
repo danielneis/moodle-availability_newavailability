@@ -37,8 +37,15 @@ class frontend extends \core_availability\frontend {
         return array('ajaxerror');
     }
 
+    protected function allow_add($course, \cm_info $cm = null,
+            \section_info $section = null) {
+        return true;
+    }
+
     protected function get_javascript_init_params($course, \cm_info $cm = null,
             \section_info $section = null) {
-        return array();
+
+        $context = \context_course::instance($course->id);
+        return array((object)array('name' => 'testing'));
     }
 }

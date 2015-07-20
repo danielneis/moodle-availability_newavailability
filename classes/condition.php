@@ -26,7 +26,7 @@ namespace availability_newavailability;
 defined('MOODLE_INTERNAL') || die();
 
 /**
- * Date condition.
+ * newavailability condition.
  *
  * @package availability_newavailability
  * @copyright 2014 The Open University
@@ -41,10 +41,11 @@ class condition extends \core_availability\condition {
      * @throws \coding_exception If invalid data structure.
      */
     public function __construct($structure) {
+        $this->allow = true;
     }
 
     public function save() {
-        return (object)array();
+        return (object)array('type' => 'newavailability');
     }
 
     /**
@@ -53,31 +54,19 @@ class condition extends \core_availability\condition {
      * Intended for unit testing, as normally the JSON values are constructed
      * by JavaScript code.
      *
-     * @param string $direction DIRECTION_xx constant
-     * @param int $time Time in epoch seconds
      * @return stdClass Object representing condition
      */
-    public static function get_json($direction, $time) {
-        return (object)array();
+    public static function get_json() {
+        return (object)array('type' => 'newavailability');
     }
 
     public function is_available($not, \core_availability\info $info, $grabthelot, $userid) {
-        return $this->is_available_for_all($not);
-    }
-
-    public function is_available_for_all($not = false) {
         return $not;
     }
 
     public function get_description($full, $not, \core_availability\info $info) {
         return $this->get_either_description($not, false);
     }
-
-    public function get_standalone_description(
-            $full, $not, \core_availability\info $info) {
-        return $this->get_either_description($not, true);
-    }
-
     /**
      * Shows the description using the different lang strings for the standalone
      * version or the full one.
