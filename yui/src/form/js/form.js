@@ -42,7 +42,7 @@ M.availability_newavailability.form.getNode = function(json) {
     if (!M.availability_newavailability.form.addedEvents) {
         M.availability_newavailability.form.addedEvents = true;
         var root = Y.one('#fitem_id_availabilityconditionsjson');
-        root.delegate('click', function() {
+        root.delegate('change', function() {
                 // The key point is this update call. This call will update
                 // the JSON data in the hidden field in the form, so that it
                 // includes the new value of the checkbox.
