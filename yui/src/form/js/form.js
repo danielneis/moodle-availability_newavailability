@@ -1,11 +1,13 @@
 /**
- * JavaScript for form editing date conditions.
+ * JavaScript for newavailability conditions.
  *
  * @module moodle-availability_newavailability-form
  */
 M.availability_newavailability = M.availability_newavailability || {};
 
 /**
+ * JavaScript for form for editing newavailability conditions.
+*
  * @class M.availability_newavailability.form
  * @extends M.core_availability.plugin
  */
@@ -47,7 +49,7 @@ M.availability_newavailability.form.getNode = function(json) {
                 // the JSON data in the hidden field in the form, so that it
                 // includes the new value of the checkbox.
                 M.core_availability.form.update();
-                }, '.availability_newavailability input');
+        }, '.availability_newavailability input');
     }
 
     return node;
@@ -69,7 +71,7 @@ M.availability_completion.form.fillErrors = function(errors, node) {
     // error will show immediately as a 'Please set' tag, and if the
     // user saves the form with an error still in place, they'll see
     // the actual error text.
- 
+
     // In this example an error is not possible...
     if (false) {
         // ...but this is how you would add one if required. This is
